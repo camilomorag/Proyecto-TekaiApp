@@ -5,11 +5,15 @@ type Props = {
   task: Task;
   onDelete: (id: number) => void;
   onEdit?: (task: Task) => void;
+  statusColor?: string; // Nueva prop opcional
 };
 
-export default function TaskCard({ task, onDelete, onEdit }: Props) {
+export default function TaskCard({ task, onDelete, onEdit, statusColor }: Props) {
   return (
-    <div className="task-card">
+    <div 
+      className="task-card"
+      style={{ borderLeft: `4px solid ${statusColor || '#4361ee'}` }}
+    >
       <div className="task-header">
         <strong>{task.titulo}</strong>
         <div className="task-actions">
